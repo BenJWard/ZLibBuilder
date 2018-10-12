@@ -5,6 +5,7 @@ BinaryBuilder wizard.
 
 The binaries of Zlib are distributed under the Zlib license:
 
+```
 /* zlib.h -- interface of the 'zlib' general purpose compression library
   version 1.2.11, January 15th, 2017
 
@@ -30,3 +31,4 @@ The binaries of Zlib are distributed under the Zlib license:
   jloup@gzip.org          madler@alumni.caltech.edu
 
 */
+```
