@@ -2,7 +2,7 @@ language: julia
 os:
   - linux
 julia:
-  - 0.6
+  - 1.0
 notifications:
   email: false
 git:
@@ -19,9 +19,18 @@ sudo: required
 
 # Before anything else, get the latest versions of things
 before_script:
-  - julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryProvider.jl")'
-  - julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryBuilder.jl"); Pkg.build()'
+  - julia -e 'using Pkg; Pkg.add(PackageSpec(url="https://github.com/JuliaPackaging/BinaryBuilder.jl", rev="master"))'
 
 script:
   - julia build_tarballs.jl
+  
+deploy:
+    provider: releases
+    api_key: $RELEASE_TOKEN
+    file_glob: true
+    file: products/*
+    skip_cleanup: true
+    on:
+        repo: BenJWard/ZLibBuilder
+        tags: true
 
