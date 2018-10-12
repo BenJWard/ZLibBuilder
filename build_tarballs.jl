@@ -3,11 +3,11 @@
 using BinaryBuilder
 
 name = "ZLibBuilder"
-version = v"0.1.0"
+version = v"1.2.11"
 
 # Collection of sources required to build ZLibBuilder
 sources = [
-    "https://zlib.net/zlib-1.2.11.tar.gz" =>
+    "https://zlib.net/zlib-$(version).tar.gz" =>
     "c3e5e9fdd5004dcb542feda5ee4f0ff0744628baf8ed2dd5d66f8ca1197cb1a1",
 
 ]
@@ -58,9 +58,7 @@ products(prefix) = [
 ]
 
 # Dependencies that must be installed before this package can be built
-dependencies = [
-    
-]
+dependencies = []
 
 # Build the tarballs, and possibly a `build.jl` as well.
 build_tarballs(ARGS, name, version, sources, script, platforms, products, dependencies)
